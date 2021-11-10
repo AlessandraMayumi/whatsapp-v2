@@ -23,8 +23,8 @@ router.post('/', (req, res, next) => {
         // .then(message => console.log(message.sid))
         .done();
     
-
-    res.send(req.body)
+    console.log(req.body)
+    res.end()
     // Chat.create(req.body).then((chat) => {
     //     res.send(chat);
     // }).catch(next);
