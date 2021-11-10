@@ -14,6 +14,10 @@ app.use(express.urlencoded({ extended: true}));
 
 app.use(routes);
 
+app.use((err, req, res, next) => {
+    res.status(422).send({error: err.message});
+});
+
 app.listen(process.env.PORT || 4000, () => {
     console.log('listening port for requests');
 });
