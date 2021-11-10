@@ -20,11 +20,14 @@ router.post('/', (req, res, next) => {
             from: 'whatsapp:+14155238886',
             to: 'whatsapp:+5519989711675'
         })
-        // .then(message => console.log(message.sid))
+        .then(message => {
+            console.log(message.sid)
+            console.log(req.body)
+            res.end()
+        })
         .done();
     
-    console.log(req.body)
-    res.end()
+    
     // Chat.create(req.body).then((chat) => {
     //     res.send(chat);
     // }).catch(next);
