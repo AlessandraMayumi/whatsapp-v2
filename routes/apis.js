@@ -23,9 +23,9 @@ router.post('/', (req, res, next) => {
         .then(message => console.log(message.sid))
         .done();
     // 
-    Chat.create(req.body).then((chat) => {
-        res.send(chat);
-    }).catch(next);
+    // Chat.create(req.body).then((chat) => {
+    //     res.send(chat);
+    // }).catch(next);
 });
 
 router.put('/:id', (req, res, next) => {
