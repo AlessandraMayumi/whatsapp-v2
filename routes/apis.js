@@ -9,6 +9,9 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
+    Chat.create(req.body).then((chat) => {
+        res.send(chat);
+    }).catch(next);
     // 
     const accountSid = process.env.TWILIO_ACCOUNT_SID;
     const authToken = process.env.TWILIO_AUTH_TOKEN;
@@ -16,21 +19,12 @@ router.post('/', (req, res, next) => {
 
     client.messages
         .create({
-            body: 'Hello from whatsapp-v2. You are free to change it and write whatever you like.',
+            body: 'Hello, from whatsapp-v2.',
             from: 'whatsapp:+14155238886',
             to: 'whatsapp:+5519989711675'
         })
-        .then(message => {
-            console.log(message.sid)
-            console.log(req.body)
-            res.end()
-        }).catch(next);
+        .then(message => console.log(message.sid))
         // .done();
-    
-    
-    // Chat.create(req.body).then((chat) => {
-    //     res.send(chat);
-    // }).catch(next);
 });
 
 router.put('/:id', (req, res, next) => {
