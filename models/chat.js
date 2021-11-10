@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const ChatSchema = new Schema({
     name: {
-        type: String
+        type: String,
+        required: [true, 'Name field is required']
     },
     rank: {
         type: String
@@ -17,5 +18,3 @@ const ChatSchema = new Schema({
 const Chat = mongoose.model('chat', ChatSchema);
 
 module.exports = Chat;
-
-// required: [true, 'Name field is required']

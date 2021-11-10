@@ -16,13 +16,15 @@ router.post('/', (req, res, next) => {
 
     client.messages
         .create({
-            body: 'Hello! This is an editable text message. You are free to change it and write whatever you like.',
+            body: 'Hello from whatsapp-v2. You are free to change it and write whatever you like.',
             from: 'whatsapp:+14155238886',
             to: 'whatsapp:+5519989711675'
         })
-        .then(message => console.log(message.sid))
+        // .then(message => console.log(message.sid))
         .done();
-    // 
+    
+
+    res.send(req.body)
     // Chat.create(req.body).then((chat) => {
     //     res.send(chat);
     // }).catch(next);
